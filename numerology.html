@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedic Numerology Calculator | Vedic Astro & Vastu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #ff8c00;
+      --bg-secondary: #fff3e0;
+      --text-red: #8b0000;
+      --text-red-light: #b30000;
+      --border-orange: #ffaa55;
+      --accent-gold: #ffd700;
+      --navbar-bg: #7a0000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      background-color: var(--bg-secondary);
+      color: var(--text-red);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 98%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: #500000;
+      color: #ffcccc;
+      padding: 6px 0;
+      font-size: 11.5px;
+      border-bottom: 2px solid var(--bg-primary);
+    }
+    .top-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar span {
+      color: #ffe6e6;
+      margin-right: 12px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .top-bar i {
+      color: var(--accent-gold);
+      margin-right: 4px;
+    }
+
+    /* SCREEN-FITTED NAVBAR (NO OVERFLOW) */
+    .navbar {
+      background: var(--navbar-bg);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      border-bottom: 3px solid var(--bg-primary);
+      box-shadow: 0 4px 15px rgba(122, 0, 0, 0.25);
+      padding: 6px 0;
+    }
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .logo {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.3px;
+    }
+    .logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 1;
+    }
+    .nav-links li {
+      position: relative;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ffe6e6;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    /* DROPDOWNS */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 190px;
+      border-radius: 6px;
+      border: 2px solid var(--bg-primary);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      list-style: none;
+      padding: 4px 0;
+      z-index: 10001;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li { width: 100%; }
+    .dropdown-menu a {
+      display: block;
+      padding: 7px 12px;
+      color: var(--text-red);
+      font-size: 11.5px;
+    }
+    .dropdown-menu a:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-red-light);
+    }
+
+    /* COMPACT USER CHIP & BUTTON */
+    .user-chip-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .user-chip-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: #ffffff;
+      padding: 3px 6px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .user-avatar {
+      background: var(--accent-gold);
+      color: #7a0000;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .user-dropdown-card {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background: #ffffff;
+      min-width: 140px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 99999;
+      overflow: hidden;
+    }
+    .user-dropdown-card a {
+      display: block !important;
+      color: var(--text-red) !important;
+      padding: 7px 10px !important;
+      font-size: 11.5px !important;
+      text-decoration: none;
+      border-bottom: 1px solid #ffe8d6;
+    }
+    .user-dropdown-card a:hover {
+      background: var(--bg-secondary) !important;
+    }
+
+    .btn-nav-login {
+      background: transparent;
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-book {
+      background: linear-gradient(135deg, var(--bg-primary), #d84315) !important;
+      color: #ffffff !important;
+      padding: 4px 9px !important;
+      border-radius: 5px;
+      border: 1px solid var(--accent-gold) !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      white-space: nowrap;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb-wrap {
+      background: #fff8f0;
+      padding: 8px 0;
+      border-bottom: 1px solid #ffe0b2;
+      font-size: 12px;
+    }
+    .breadcrumb-wrap a {
+      color: #b30000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .breadcrumb-wrap span {
+      color: #666;
+      margin: 0 5px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, #ff8c00 0%, #e65100 100%);
+      color: #fff;
+      text-align: center;
+      padding: 28px 15px;
+      border-bottom: 4px solid var(--text-red);
+    }
+    .page-header h1 {
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .page-header p {
+      color: #fff0d4;
+      font-size: 13px;
+    }
+
+    /* SECTION & CALCULATOR */
+    .section {
+      padding: 30px 0;
+    }
+    .calc-container {
+      background: #ffffff;
+      border: 2px solid var(--border-orange);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.08);
+      max-width: 850px;
+      margin: 0 auto 30px auto;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-red);
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      font-size: 13px;
+      background: #fffaf5;
+      color: var(--text-red);
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: var(--text-red);
+    }
+    .btn-calc {
+      background: linear-gradient(135deg, var(--bg-primary), #d84315);
+      color: #ffffff;
+      border: none;
+      padding: 11px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 3px 10px rgba(216, 67, 21, 0.25);
+    }
+    .btn-calc:hover {
+      background: #bf360c;
+    }
+
+    /* RESULT SECTION */
+    .result-box {
+      display: none;
+      margin-top: 25px;
+      border-top: 2px dashed #ffd1b3;
+      padding-top: 20px;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .res-card {
+      background: #fff8f0;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .res-number {
+      width: 50px;
+      height: 50px;
+      background: var(--text-red);
+      color: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 auto 10px auto;
+    }
+    .res-card h4 {
+      font-size: 15px;
+      color: var(--text-red);
+      margin-bottom: 4px;
+    }
+    .res-card p {
+      font-size: 12.5px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    footer {
+      background: #4a0000;
+      color: #ffcccc;
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 12.5px;
+      border-top: 4px solid var(--bg-primary);
+    }
+    footer a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 600px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-flex">
+      <div>
+        <span><i class="fa-solid fa-phone"></i> +91 9681258853 / +91 9163827953</span>
+        <span><i class="fa-solid fa-envelope"></i> contact@astrovedic.com</span>
+      </div>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <a href="index.html" class="logo">Vedic Astro<span> & Vastu</span></a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        
+        <li class="dropdown">
+          <a href="panchang.html">Panchang <i class="fa-solid fa-angle-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="panchang-today.html">Today's Panchang</a></li>
+            <li><a href="panchang-tithi.html">Today's Tithi</a></li>
+            <li><a href="panchang-nakshatra.html">Today's Nakshatra</a></li>
+            <li><a href="panchang-muhurat.html">Today's Shubh Muhurat</a></li>
+            <li><a href="panchang-choghadiya.html">Today's Choghadiya</a></li>
+            <li><a href="panchang-rahu-kaal.html">Today's Rahu Kaal</a></li>
+            <li><a href="panchang.html">Panchang Calendar</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="numerology-daily.html" class="active">Numerology <i class="fa-solid fa-angle-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="numerology-daily.html">Daily Numerology</a></li>
+            <li><a href="numerology.html">Numerology Calculator</a></li>
+          </ul>
+        </li>
+
+        <li><a href="know-your-rashi.html">Know Your Rashi</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+        
+        <li id="navUserSlot">
+          <a href="auth.html" class="btn-nav-login"><i class="fa-regular fa-user"></i> Login</a>
+        </li>
+        <li><a href="book-now.html" class="btn-book">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-wrap">
+    <div class="container">
+      <a href="index.html">Home</a><span>&gt;</span><a href="numerology-daily.html">Numerology</a><span>&gt;</span><strong>Vedic Calculator</strong>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Vedic Numerology Calculator</h1>
+      <p>Decode your core Mulank (Driver) and Bhagyank (Destiny) numbers from birth date & name</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="calc-container">
+        <h3 style="font-size:18px; color:var(--text-red); margin-bottom:14px; text-align:center;">
+          <i class="fa-solid fa-calculator"></i> Calculate Your Core Vibrations
+        </h3>
+        
+        <form onsubmit="event.preventDefault(); calculateVedicNumbers();">
+          <div class="calc-grid">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="numClientName" placeholder="Enter your official name" required>
+            </div>
+            <div class="form-group">
+              <label>Date of Birth *</label>
+              <input type="date" id="numClientDob" required>
+            </div>
+          </div>
+          <button type="submit" class="btn-calc">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Reveal My Numbers & Guidance
+          </button>
+        </form>
+
+        <!-- Dynamic Results -->
+        <div id="numerologyResults" class="result-box">
+          <div class="result-grid">
+            
+            <div class="res-card">
+              <div class="res-number" id="valMulank">-</div>
+              <h4>Mulank (Driver Number)</h4>
+              <p id="descMulank">Governs your core personality, basic instincts, and inner character.</p>
+            </div>
+
+            <div class="res-card">
+              <div class="res-number" id="valBhagyank">-</div>
+              <h4>Bhagyank (Destiny Number)</h4>
+              <p id="descBhagyank">Governs life trajectory, career windows, and overall karmic destiny.</p>
+            </div>
+
+            <div class="res-card">
+              <div class="res-number" id="valKua">-</div>
+              <h4>Namank (Name Number)</h4>
+              <p id="descNamank">Vibrational resonance of your current spelling in the social universe.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <a href="https://wa.me/919681258853?text=Namaste%20Acharyaji,%20I%20calculated%20my%20Numerology%20and%20want%20guidance." class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <div style="margin-bottom: 12px;">
+      <a href="terms-and-conditions.html">Terms & Conditions</a> |
+      <a href="contact-us.html">Contact Us</a> |
+      <a href="services.html">Reports & Services</a> |
+      <a href="reviews.html">User Reviews</a> |
+      <a href="videos.html">Videos</a>
+    </div>
+    <p>© 2026 Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slot = document.getElementById('navUserSlot');
+      if (!slot) return;
+
+      const rawUser = localStorage.getItem('astro_logged_client');
+      if (!rawUser) {
+        slot.innerHTML = `<a href="auth.html" class="btn-nav-login"><i class="fa-regular fa-user"></i> Login</a>`;
+        return;
+      }
+
+      const user = JSON.parse(rawUser);
+      const name = user.name ? user.name.split(' ')[0] : 'User';
+
+      slot.innerHTML = `
+        <div class="user-chip-wrapper">
+          <button type="button" class="user-chip-btn" onclick="toggleUserDrop(event)">
+            <span class="user-avatar">${name.charAt(0).toUpperCase()}</span>
+            <span>${name}</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i>
+          </button>
+          <div class="user-dropdown-card" id="uCard">
+            <a href="dashboard.html"><i class="fa-solid fa-box-archive"></i> My Orders</a>
+            <a href="javascript:void(0)" onclick="signOutUser()"><i class="fa-solid fa-power-off"></i> Sign Out</a>
+          </div>
+        </div>
+      `;
+    });
+
+    function toggleUserDrop(e) {
+      e.stopPropagation();
+      const el = document.getElementById('uCard');
+      if (el) el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', () => {
+      const el = document.getElementById('uCard');
+      if (el) el.style.display = 'none';
+    });
+
+    function signOutUser() {
+      localStorage.removeItem('astro_logged_client');
+      alert('Signed out successfully.');
+      window.location.reload();
+    }
+
+    function reduceToSingle(num) {
+      while (num > 9) {
+        num = num.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+      }
+      return num;
+    }
+
+    function calculateVedicNumbers() {
+      const dobVal = document.getElementById('numClientDob').value;
+      const nameVal = document.getElementById('numClientName').value.trim();
+      if (!dobVal) return;
+
+      const parts = dobVal.split('-');
+      const day = parseInt(parts[2]);
+      const month = parseInt(parts[1]);
+      const year = parseInt(parts[0]);
+
+      // 1. Mulank (Day of birth)
+      const mulank = reduceToSingle(day);
+
+      // 2. Bhagyank (Sum of all digits)
+      const allSum = dobVal.replace(/[^0-9]/g, '').split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+      const bhagyank = reduceToSingle(allSum);
+
+      // 3. Simple Chaldean Name Number
+      const chaldean = {
+        A:1, I:1, J:1, Q:1, Y:1,
+        B:2, K:2, R:2,
+        C:3, G:3, L:3, S:3,
+        D:4, M:4, T:4,
+        E:5, H:5, N:5, X:5,
+        U:6, V:6, W:6,
+        O:7, Z:7,
+        F:8, P:8
+      };
+      let nameSum = 0;
+      for (let char of nameVal.toUpperCase()) {
+        if (chaldean[char]) nameSum += chaldean[char];
+      }
+      const namank = nameSum > 0 ? reduceToSingle(nameSum) : mulank;
+
+      document.getElementById('valMulank').innerText = mulank;
+      document.getElementById('valBhagyank').innerText = bhagyank;
+      document.getElementById('valKua').innerText = namank;
+
+      document.getElementById('numerologyResults').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

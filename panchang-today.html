@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Panchang & Auspicious Muhurat | Vedic Astro & Vastu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #ff8c00;
+      --bg-secondary: #fff3e0;
+      --text-red: #8b0000;
+      --text-red-light: #b30000;
+      --border-orange: #ffaa55;
+      --accent-gold: #ffd700;
+      --navbar-bg: #7a0000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      background-color: var(--bg-secondary);
+      color: var(--text-red);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 96%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: #500000;
+      color: #ffcccc;
+      padding: 6px 0;
+      font-size: 12px;
+      border-bottom: 2px solid var(--bg-primary);
+    }
+    .top-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar span {
+      color: #ffe6e6;
+      margin-right: 15px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .top-bar i {
+      color: var(--accent-gold);
+      margin-right: 5px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--navbar-bg);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      border-bottom: 3px solid var(--bg-primary);
+      box-shadow: 0 4px 15px rgba(122, 0, 0, 0.25);
+      padding: 7px 0;
+    }
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-links li {
+      position: relative;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ffe6e6;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    /* DROPDOWNS */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 200px;
+      border-radius: 8px;
+      border: 2px solid var(--bg-primary);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      list-style: none;
+      padding: 6px 0;
+      z-index: 10001;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li { width: 100%; }
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 14px;
+      color: var(--text-red);
+      font-size: 12px;
+    }
+    .dropdown-menu a:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-red-light);
+    }
+
+    /* USER CHIP & BUTTON */
+    .user-chip-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .user-chip-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+    .user-avatar {
+      background: var(--accent-gold);
+      color: #7a0000;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .user-dropdown-card {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background: #ffffff;
+      min-width: 150px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 99999;
+      overflow: hidden;
+    }
+    .user-dropdown-card a {
+      display: block !important;
+      color: var(--text-red) !important;
+      padding: 8px 12px !important;
+      font-size: 12px !important;
+      text-decoration: none;
+      border-bottom: 1px solid #ffe8d6;
+    }
+    .user-dropdown-card a:hover {
+      background: var(--bg-secondary) !important;
+    }
+
+    .btn-nav-login {
+      background: transparent;
+      color: var(--accent-gold);
+      border: 1.5px solid var(--accent-gold);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .btn-book {
+      background: linear-gradient(135deg, var(--bg-primary), #d84315) !important;
+      color: #ffffff !important;
+      padding: 5px 12px !important;
+      border-radius: 6px;
+      border: 1px solid var(--accent-gold) !important;
+      font-weight: 700 !important;
+      font-size: 12px !important;
+      margin-left: 4px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb-wrap {
+      background: #fff8f0;
+      padding: 10px 0;
+      border-bottom: 1px solid #ffe0b2;
+      font-size: 12.5px;
+    }
+    .breadcrumb-wrap a {
+      color: #b30000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .breadcrumb-wrap span {
+      color: #666;
+      margin: 0 6px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, #ff8c00 0%, #e65100 100%);
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+      border-bottom: 4px solid var(--text-red);
+    }
+    .page-header h1 {
+      font-size: 26px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .page-header p {
+      color: #fff0d4;
+      font-size: 13.5px;
+    }
+
+    /* PANCHANG CONTENT */
+    .section {
+      padding: 35px 0;
+    }
+    .panchang-status-bar {
+      background: #ffffff;
+      border: 2px solid var(--border-orange);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.08);
+    }
+    .status-left h2 {
+      font-size: 18px;
+      color: var(--text-red);
+      margin-bottom: 4px;
+    }
+    .status-left p {
+      font-size: 13px;
+      color: #555;
+    }
+    .date-pill {
+      background: #fff8f0;
+      border: 1px solid var(--border-orange);
+      color: #e65100;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* GRID BOXES */
+    .panchang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+    .p-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(255, 140, 0, 0.06);
+    }
+    .p-card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #ffd1b3;
+      padding-bottom: 8px;
+    }
+    .p-card-top i {
+      font-size: 18px;
+      color: var(--bg-primary);
+    }
+    .p-card-top h3 {
+      font-size: 15px;
+      color: var(--text-red);
+    }
+    .p-val {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-red);
+      margin-bottom: 4px;
+    }
+    .p-sub {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* TIMING BLOCKS */
+    .timing-wrap {
+      background: #ffffff;
+      border: 2px solid var(--border-orange);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.08);
+    }
+    .timing-wrap h3 {
+      font-size: 17px;
+      color: var(--text-red);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .timing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+    .t-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .t-item.good {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      color: #166534;
+    }
+    .t-item.bad {
+      background: #fef2f2;
+      border: 1.5px solid #fca5a5;
+      color: #991b1b;
+    }
+    .t-item strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25d366;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    footer {
+      background: #4a0000;
+      color: #ffcccc;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 13px;
+      border-top: 4px solid var(--bg-primary);
+    }
+    footer a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-flex">
+      <div>
+        <span><i class="fa-solid fa-phone"></i> +91 9681258853 / +91 9163827953</span>
+        <span><i class="fa-solid fa-envelope"></i> contact@astrovedic.com</span>
+      </div>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-flex">
+      <a href="index.html" class="logo">Vedic Astro<span> & Vastu</span></a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
+        
+        <li class="dropdown">
+          <a href="panchang.html" class="active">Panchang <i class="fa-solid fa-angle-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="panchang-today.html">Today's Panchang</a></li>
+            <li><a href="panchang-tithi.html">Today's Tithi</a></li>
+            <li><a href="panchang-nakshatra.html">Today's Nakshatra</a></li>
+            <li><a href="panchang-muhurat.html">Today's Shubh Muhurat</a></li>
+            <li><a href="panchang-choghadiya.html">Today's Choghadiya</a></li>
+            <li><a href="panchang-rahu-kaal.html">Today's Rahu Kaal</a></li>
+            <li><a href="panchang.html">Panchang Calendar</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="numerology-daily.html">Numerology <i class="fa-solid fa-angle-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="numerology-daily.html">Daily Numerology</a></li>
+            <li><a href="numerology.html">Numerology Calculator</a></li>
+          </ul>
+        </li>
+
+        <li><a href="know-your-rashi.html">Know Your Rashi</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+        
+        <li id="navUserSlot">
+          <a href="auth.html" class="btn-nav-login"><i class="fa-regular fa-user"></i> Login</a>
+        </li>
+        <li><a href="book-now.html" class="btn-book">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-wrap">
+    <div class="container">
+      <a href="index.html">Home</a><span>&gt;</span><a href="panchang.html">Panchang</a><span>&gt;</span><strong>Today's Panchang</strong>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Today's Panchang & Auspicious Muhurat</h1>
+      <p>Accurate Vedic planetary alignments, lunar calculations & daily auspicious timings</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="panchang-status-bar">
+        <div class="status-left">
+          <h2>Today's Vedic Coordinates</h2>
+          <p>Location: Kolkata, West Bengal, India | Sunrise: 05:22 AM • Sunset: 05:48 PM</p>
+        </div>
+        <div class="date-pill" id="liveDate">
+          <i class="fa-solid fa-calendar-day"></i> Vedic Calendar Live
+        </div>
+      </div>
+
+      <!-- Core 5 Elements Grid -->
+      <div class="panchang-grid">
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-moon"></i>
+            <h3>Today's Tithi</h3>
+          </div>
+          <div class="p-val">Trayodashi</div>
+          <div class="p-sub">Shukla Paksha (Waxing Phase) • Up to 06:45 PM</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-star"></i>
+            <h3>Nakshatra</h3>
+          </div>
+          <div class="p-val">Rohini</div>
+          <div class="p-sub">Ruled by Moon (Chandra) • Auspicious for all ventures</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-sun"></i>
+            <h3>Yoga</h3>
+          </div>
+          <div class="p-val">Shobhana</div>
+          <div class="p-sub">Bestows brilliance, prosperity & success</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Karana</h3>
+          </div>
+          <div class="p-val">Kaulava</div>
+          <div class="p-sub">Favorable for trade, travel, and domestic work</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-calendar-week"></i>
+            <h3>Vaara (Weekday)</h3>
+          </div>
+          <div class="p-val">Budhavaara</div>
+          <div class="p-sub">Mercury (Budha) • Auspicious for learning & business</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-top">
+            <i class="fa-solid fa-compass"></i>
+            <h3>Disha Shool</h3>
+          </div>
+          <div class="p-val">North (Uttar)</div>
+          <div class="p-sub">Remedy: Take jaggery or coriander before travel</div>
+        </div>
+      </div>
+
+      <!-- Muhurat Block -->
+      <div class="timing-wrap">
+        <h3><i class="fa-solid fa-clock"></i> Shubh & Ashubh Muhurat Timings Today</h3>
+        <div class="timing-grid">
+          <div class="t-item good">
+            <strong><i class="fa-solid fa-circle-check"></i> Abhijit Muhurat</strong>
+            11:38 AM – 12:28 PM (Most auspicious window for new beginnings)
+          </div>
+
+          <div class="t-item good">
+            <strong><i class="fa-solid fa-circle-check"></i> Amrit Kaal</strong>
+            02:15 PM – 03:45 PM (Ideal for financial and property decisions)
+          </div>
+
+          <div class="t-item bad">
+            <strong><i class="fa-solid fa-triangle-exclamation"></i> Rahu Kaal</strong>
+            12:05 PM – 01:36 PM (Avoid initiating important activities)
+          </div>
+
+          <div class="t-item bad">
+            <strong><i class="fa-solid fa-circle-xmark"></i> Yamaganda</strong>
+            07:30 AM – 09:00 AM (Inauspicious time period)
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <a href="https://wa.me/919681258853?text=Namaste%20Acharyaji,%20I%20have%20an%20inquiry%20regarding%20today's%20Muhurat." class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <div style="margin-bottom: 12px;">
+      <a href="terms-and-conditions.html">Terms & Conditions</a> |
+      <a href="contact-us.html">Contact Us</a> |
+      <a href="services.html">Reports & Services</a> |
+      <a href="reviews.html">User Reviews</a> |
+      <a href="videos.html">Videos</a>
+    </div>
+    <p>© 2026 Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slot = document.getElementById('navUserSlot');
+      if (!slot) return;
+
+      const rawUser = localStorage.getItem('astro_logged_client');
+      if (!rawUser) {
+        slot.innerHTML = `<a href="auth.html" class="btn-nav-login"><i class="fa-regular fa-user"></i> Login</a>`;
+        return;
+      }
+
+      const user = JSON.parse(rawUser);
+      const name = user.name ? user.name.split(' ')[0] : 'User';
+
+      slot.innerHTML = `
+        <div class="user-chip-wrapper">
+          <button type="button" class="user-chip-btn" onclick="toggleUserDrop(event)">
+            <span class="user-avatar">${name.charAt(0).toUpperCase()}</span>
+            <span>${name}</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i>
+          </button>
+          <div class="user-dropdown-card" id="uCard">
+            <a href="dashboard.html"><i class="fa-solid fa-box-archive"></i> My Orders</a>
+            <a href="javascript:void(0)" onclick="signOutUser()"><i class="fa-solid fa-power-off"></i> Sign Out</a>
+          </div>
+        </div>
+      `;
+    });
+
+    function toggleUserDrop(e) {
+      e.stopPropagation();
+      const el = document.getElementById('uCard');
+      if (el) el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', () => {
+      const el = document.getElementById('uCard');
+      if (el) el.style.display = 'none';
+    });
+
+    function signOutUser() {
+      localStorage.removeItem('astro_logged_client');
+      alert('Signed out successfully.');
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>
