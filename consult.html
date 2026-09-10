@@ -1,32 +1,112 @@
-document.getElementById('orderForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const orderData = {
-    clientName: document.getElementById('clientName').value,
-    phone: document.getElementById('clientPhone').value,
-    service: document.getElementById('servicePackage').value,
-    amount: document.getElementById('serviceAmount').value,
-    utr: document.getElementById('utrRef').value,
-    dobTime: document.getElementById('dobTime').value,
-    birthPlace: document.getElementById('birthPlace').value,
-    query: document.getElementById('clientQuery').value
-  };
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Consultation - Vedic Astro & Vastu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+      <h2>Vedic Astro & Vastu</h2>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="consult.html" class="active">Consult</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
 
-  try {
-    const response = await fetch('https://astro-website-haaz.onrender.com/api/orders', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    });
+  <main class="container">
+    <h2>Book Your Consultation Session</h2>
     
-    if (response.ok) {
-      alert('Order submitted successfully!');
-      window.location.reload();
-    } else {
-      alert('Failed to submit order.');
-    }
-  } catch (err) {
-    console.error('Error:', err);
-    alert('Server connection error!');
-  }
-});
+    <form id="orderForm" class="consult-form">
+      <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" id="clientName" required placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="tel" id="clientPhone" required placeholder="Enter your phone number">
+      </div>
+
+      <div class="form-group">
+        <label>Select Service Package:</label>
+        <select id="servicePackage" required>
+          <option value="">-- Choose Service --</option>
+          <option value="Astrology Consultation">Astrology Consultation</option>
+          <option value="Vastu Analysis">Vastu Analysis</option>
+          <option value="Numerology Report">Numerology Report</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Amount (INR):</label>
+        <input type="number" id="serviceAmount" required placeholder="Enter amount">
+      </div>
+
+      <div class="form-group">
+        <label>Payment UTR / Reference No:</label>
+        <input type="text" id="utrRef" required placeholder="Enter UTR transaction ID">
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth & Time:</label>
+        <input type="text" id="dobTime" required placeholder="DD/MM/YYYY, HH:MM AM/PM">
+      </div>
+
+      <div class="form-group">
+        <label>Birth Place:</label>
+        <input type="text" id="birthPlace" required placeholder="City, State, Country">
+      </div>
+
+      <div class="form-group">
+        <label>Your Question / Query:</label>
+        <textarea id="clientQuery" rows="4" placeholder="Write your specific query here..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Booking</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const orderData = {
+        clientName: document.getElementById('clientName5').value || document.getElementById('clientName').value,
+        phone: document.getElementById('clientPhone').value,
+        service: document.getElementById('servicePackage').value,
+        amount: document.getElementById('serviceAmount').value,
+        utr: document.getElementById('utrRef').value,
+        dobTime: document.getElementById('dobTime').value,
+        birthPlace: document.getElementById('birthPlace').value,
+        query: document.getElementById('clientQuery').value
+      };
+
+      try {
+        const response = await fetch('https://astro-website-haaz.onrender.com/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        });
+        
+        const result = await response.json();
+        if (response.ok) {
+          alert('Consultation booking submitted successfully!');
+          document.getElementById('orderForm').reset();
+        } else {
+          alert(result.message || 'Failed to submit order.');
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        alert('Server connection error!');
+      }
+    });
+  </script>
+</body>
+</html>
