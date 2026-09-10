@@ -1,0 +1,65 @@
+/* USER CHIP & NAVBAR OVERFLOW FIX */
+.user-chip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.user-chip-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #ffd700;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.user-avatar {
+  background: #ffd700;
+  color: #7a0000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.user-dropdown-card {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  min-width: 150px;
+  border: 1.5px solid #ffaa55;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 99999;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.user-dropdown-card a {
+  display: block !important;
+  color: #8b0000 !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.user-dropdown-card a:hover {
+  background: #fff3e0 !important;
+}
+
+/* স্ক্রিন যাতে ১ পিক্সেলও বাইরে না ছড়ায় */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
