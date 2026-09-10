@@ -5,64 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Consultation - Vedic Astro & Vastu</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fcf8f2; margin: 0; padding: 0; color: #333; }
+    header { background: #8b0000; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-area img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: 600; }
+    nav a:hover { color: #ffeb3b; }
+    .main-container { max-width: 900px; margin: 30px auto; padding: 30px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #8b0000; }
+    h2 { text-align: center; color: #8b0000; margin-bottom: 25px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group.full-width { grid-column: span 2; }
+    label { display: block; margin-bottom: 6px; font-weight: bold; color: #444; }
+    input, select, textarea { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; }
+    input:focus, select:focus, textarea:focus { border-color: #8b0000; outline: none; }
+    
+    .payment-box { background: #fff8e1; border: 1px dashed #ffa000; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; }
+    .payment-box p { margin: 5px 0; font-size: 14px; color: #555; }
+    
+    .submit-btn { width: 100%; padding: 12px; background: #8b0000; color: #fff; border: none; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 5px; transition: background 0.3s; }
+    .submit-btn:hover { background: #5c0000; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 0;">
-  
-  <header style="background: #8b0000; color: white; padding: 15px; text-align: center;">
-    <h2>Vedic Astro & Vastu - Consultation</h2>
-    <p><a href="index.html" style="color: #ffeb3b; text-decoration: none;">Back to Home</a></p>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+      <h2 style="margin:0; font-size: 20px; color: white;">Vedic Astro & Vastu</h2>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="consult.html" style="color: #ffeb3b;">Consult</a>
+      <a href="admin.html">Admin</a>
+    </nav>
   </header>
 
-  <div style="max-width: 600px; margin: 30px auto; padding: 25px; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <h3 style="margin-top: 0; color: #333; text-align: center;">Book Your Consultation Session</h3>
+  <div class="main-container">
+    <h2>Book Your Consultation Session & Services</h2>
     
+    <!-- Payment Instruction Box -->
+    <div class="payment-box">
+      <strong>⚠️ Payment Instructions:</strong>
+      <p>Please pay the required service fee via UPI / Scanner first, then copy the <strong>UTR / Transaction ID</strong> and fill up the form below to confirm your booking.</p>
+      <p style="color: #8b0000; font-weight: bold;">UPI ID / PhonePe / GPay: 9681258853@paytm (or your preferred UPI)</p>
+    </div>
+
     <form id="orderForm">
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Full Name:</label>
-        <input type="text" id="clientName" required placeholder="Enter your full name" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+      <div class="form-grid">
+        
+        <div class="form-group">
+          <label>Full Name:</label>
+          <input type="text" id="clientName" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number / WhatsApp:</label>
+          <input type="tel" id="clientPhone" required placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-group">
+          <label>Select Service / Item Package:</label>
+          <select id="servicePackage" required>
+            <option value="">-- Choose Service Package --</option>
+            <option value="Astrology Consultation (General) - ₹500">Astrology Consultation (General) - ₹500</option>
+            <option value="Kundli Matching / Horoscope Analysis - ₹750">Kundli Matching / Horoscope Analysis - ₹750</option>
+            <option value="Vastu Dosha & Home Inspection - ₹1500">Vastu Dosha & Home Inspection - ₹1500</option>
+            <option value="Numerology Name Correction Report - ₹600">Numerology Name Correction Report - ₹600</option>
+            <option value="Career & Business Astro Report - ₹1000">Career & Business Astro Report - ₹1000</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Amount Paid (INR):</label>
+          <input type="number" id="serviceAmount" required placeholder="Enter paid amount (e.g., 500)">
+        </div>
+
+        <div class="form-group">
+          <label>Payment UTR / Reference No:</label>
+          <input type="text" id="utrRef" required placeholder="Enter 12-digit UTR or Transaction ID">
+        </div>
+
+        <div class="form-group">
+          <label>Date of Birth & Time (For Astro/Numerology):</label>
+          <input type="text" id="dobTime" required placeholder="DD/MM/YYYY, HH:MM AM/PM">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Birth Place (City, State, Country):</label>
+          <input type="text" id="birthPlace" required placeholder="e.g., Kolkata, West Bengal">
+        </div>
+
+        <div class="form-group full-width">
+          <label>Your Question / Detailed Query:</label>
+          <textarea id="clientQuery" rows="4" placeholder="Write your specific questions or problems here..."></textarea>
+        </div>
+
       </div>
 
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Phone Number:</label>
-        <input type="tel" id="clientPhone" required placeholder="Enter your phone number" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Select Service Package:</label>
-        <select id="servicePackage" required style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-          <option value="">-- Choose Service --</option>
-          <option value="Astrology Consultation">Astrology Consultation</option>
-          <option value="Vastu Analysis">Vastu Analysis</option>
-          <option value="Numerology Report">Numerology Report</option>
-        </select>
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Amount (INR):</label>
-        <input type="number" id="serviceAmount" required placeholder="Enter amount" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Payment UTR / Reference No:</label>
-        <input type="text" id="utrRef" required placeholder="Enter UTR transaction ID" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Date of Birth & Time:</label>
-        <input type="text" id="dobTime" required placeholder="DD/MM/YYYY, HH:MM AM/PM" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-      </div>
-
-      <div style="margin-bottom: 15px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Birth Place:</label>
-        <input type="text" id="birthPlace" required placeholder="City, State, Country" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <label style="display:block; margin-bottom: 5px; font-weight: bold; color: #444;">Your Question / Query:</label>
-        <textarea id="clientQuery" rows="4" placeholder="Write your specific query here..." style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;"></textarea>
-      </div>
-
-      <button type="submit" style="width: 100%; padding: 12px; background: #8b0000; color: #fff; border: none; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 4px;">Submit Booking</button>
+      <button type="submit" class="submit-btn">Submit Consultation Booking</button>
     </form>
   </div>
 
@@ -90,7 +133,7 @@
         
         const result = await response.json();
         if (response.ok) {
-          alert('Consultation booking submitted successfully!');
+          alert('Consultation booking submitted successfully! We will contact you soon.');
           document.getElementById('orderForm').reset();
         } else {
           alert(result.message || 'Failed to submit order.');
