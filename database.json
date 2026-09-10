@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "1789021358853",
+      "name": "Subhajit dutta",
+      "email": "s.dutta.pc@gmail.com",
+      "phone": "9674323575",
+      "password": "$2a$10$oRPi6YlyCeBLwkURi3kBJOjfWqO3FS/QPV7pkNJtfNnWxj7KPRbV2",
+      "createdAt": "2026-09-10T06:22:38.853Z"
+    }
+  ],
+  "orders": []
+}
