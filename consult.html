@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Consultation - Vedic Astro & Vastu</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Book Consultation Packages | Acharya Abhijit Das - astroabhijit.com</title>
+  <link rel="canonical" href="https://astroabhijit.com/consult.html">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Book Consultation Packages | Acharya Abhijit Das">
+  <meta name="description" content="Book personalized online consultation sessions on Vastu, Astrology, and Numerology with Acharya Abhijit Das.">
+  <meta name="robots" content="index, follow">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -18,100 +24,570 @@
       --navbar-bg: #7a0000;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    html, body { width: 100%; max-width: 100vw; overflow-x: hidden !important; background-color: var(--bg-secondary); color: var(--text-red); line-height: 1.6; }
-    .container { width: 98%; max-width: 1380px; margin: 0 auto; padding: 0 8px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden !important;
+      background-color: var(--bg-secondary);
+      color: var(--text-red);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 98%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
 
     /* TOP BAR */
-    .top-bar { background: #500000; color: #ffcccc; padding: 6px 0; font-size: 11.5px; border-bottom: 2px solid var(--bg-primary); }
-    .top-flex { display: flex; justify-content: space-between; align-items: center; }
-    .top-bar span { color: #ffe6e6; margin-right: 12px; display: inline-flex; align-items: center; }
-    .top-bar i { color: var(--accent-gold); margin-right: 4px; }
+    .top-bar {
+      background: #500000;
+      color: #ffcccc;
+      padding: 6px 0;
+      font-size: 11.5px;
+      border-bottom: 2px solid var(--bg-primary);
+    }
+    .top-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar span {
+      color: #ffe6e6;
+      margin-right: 12px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .top-bar i {
+      color: var(--accent-gold);
+      margin-right: 4px;
+    }
 
     /* NAVBAR */
-    .navbar { background: var(--navbar-bg); position: sticky; top: 0; z-index: 10000; border-bottom: 3px solid var(--bg-primary); box-shadow: 0 4px 15px rgba(122, 0, 0, 0.25); padding: 5px 0; }
-    .nav-flex { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .navbar {
+      background: var(--navbar-bg);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      border-bottom: 3px solid var(--bg-primary);
+      box-shadow: 0 4px 15px rgba(122, 0, 0, 0.25);
+      padding: 5px 0;
+    }
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
 
-    .logo-link { display: flex; align-items: center; gap: 8px; text-decoration: none; flex-shrink: 0; }
-    .logo-img { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--accent-gold); object-fit: cover; background: #000; }
-    .logo-text { font-size: 16px; font-weight: 800; color: #ffffff; white-space: nowrap; }
-    .logo-text span { color: var(--accent-gold); }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent-gold);
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+      background: #000;
+      display: block;
+    }
+    .logo-text {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+    .logo-text span {
+      color: var(--accent-gold);
+    }
 
-    .nav-links { list-style: none; display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; }
-    .nav-links li { position: relative; list-style: none; }
-    .nav-links a { text-decoration: none; color: #ffe6e6; font-size: 11px; font-weight: 600; padding: 5px 4px; display: inline-flex; align-items: center; gap: 2px; white-space: nowrap; transition: 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 1;
+    }
+    .nav-links li {
+      position: relative;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #ffe6e6;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-gold);
+    }
 
     /* DROPDOWNS */
-    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #ffffff; min-width: 190px; border-radius: 6px; border: 2px solid var(--bg-primary); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); list-style: none; padding: 4px 0; z-index: 10001; }
-    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 190px;
+      border-radius: 6px;
+      border: 2px solid var(--bg-primary);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      list-style: none;
+      padding: 4px 0;
+      z-index: 10001;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
     .dropdown-menu li { width: 100%; }
-    .dropdown-menu a { display: block; padding: 7px 12px; color: var(--text-red); font-size: 11.5px; }
-    .dropdown-menu a:hover { background-color: var(--bg-secondary); color: var(--text-red-light); }
+    .dropdown-menu a {
+      display: block;
+      padding: 7px 12px;
+      color: var(--text-red);
+      font-size: 11.5px;
+    }
+    .dropdown-menu a:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-red-light);
+    }
 
-    .btn-nav-login { background: transparent; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 3px 7px; border-radius: 5px; font-size: 11px; font-weight: 700; text-decoration: none; }
-    .btn-book { background: linear-gradient(135deg, var(--bg-primary), #d84315) !important; color: #ffffff !important; padding: 4px 9px !important; border-radius: 5px; border: 1px solid var(--accent-gold) !important; font-weight: 700 !important; font-size: 11px !important; }
+    /* USER CHIP & BUTTON */
+    .user-chip-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .user-chip-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--accent-gold);
+      color: #ffffff;
+      padding: 3px 6px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .user-dropdown-card {
+      display: none;
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background: #ffffff;
+      min-width: 140px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 99999;
+      overflow: hidden;
+    }
+    .user-dropdown-card a {
+      display: block !important;
+      color: var(--text-red) !important;
+      padding: 7px 10px !important;
+      font-size: 11.5px !important;
+      text-decoration: none;
+      border-bottom: 1px solid #ffe8d6;
+    }
+    .user-dropdown-card a:hover {
+      background: var(--bg-secondary) !important;
+    }
+
+    .btn-nav-login {
+      background: transparent;
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-book {
+      background: linear-gradient(135deg, var(--bg-primary), #d84315) !important;
+      color: #ffffff !important;
+      padding: 4px 9px !important;
+      border-radius: 5px;
+      border: 1px solid var(--accent-gold) !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      white-space: nowrap;
+    }
 
     /* HEADER */
-    .reports-header { background: linear-gradient(135deg, #ff8c00 0%, #e65100 100%); color: #fff; text-align: center; padding: 35px 15px; border-bottom: 4px solid var(--text-red); }
-    .reports-header h1 { font-size: 26px; font-weight: 900; color: #ffffff; margin-bottom: 6px; text-transform: uppercase; }
-    .reports-header p { font-size: 13.5px; color: #fff0d4; }
+    .reports-header {
+      background: linear-gradient(135deg, #ff8c00 0%, #e65100 100%);
+      color: #fff;
+      text-align: center;
+      padding: 38px 15px;
+      border-bottom: 4px solid var(--text-red);
+    }
+    .reports-header h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .reports-header p {
+      font-size: 14px;
+      color: #fff0d4;
+      margin-bottom: 14px;
+    }
 
-    /* SECTION & CARDS */
+    /* CONSULT SECTION */
     .section { padding: 40px 0; }
-    .consult-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
-    .consult-card { background: #ffffff; border: 2px solid var(--border-orange); border-radius: 14px; padding: 25px; box-shadow: 0 6px 20px rgba(255, 140, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; position: relative; text-align: center; }
-    .consult-card.popular { border: 2.5px solid var(--text-red); }
-    .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--text-red); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 12px; border-radius: 20px; border: 1px solid var(--accent-gold); text-transform: uppercase; }
-    
-    .card-icon { font-size: 32px; color: var(--bg-primary); margin-bottom: 12px; }
-    .consult-card h3 { font-size: 18px; color: var(--text-red); margin-bottom: 10px; font-weight: 800; }
-    .price-tag { font-size: 26px; font-weight: 900; color: var(--text-red); margin-bottom: 4px; }
-    .price-tag span { font-size: 12px; font-weight: 600; color: #666; }
-    
-    .features-list { list-style: none; text-align: left; margin: 20px 0; border-top: 1px dashed #ffd1b3; padding-top: 15px; }
-    .features-list li { font-size: 13px; color: #444; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 8px; }
+    .consult-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+      margin-bottom: 35px;
+    }
+    .consult-card {
+      background: #ffffff;
+      border: 2px solid var(--border-orange);
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      text-align: center;
+    }
+    .consult-card.popular {
+      border: 2.5px solid var(--text-red);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text-red);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--accent-gold);
+      text-transform: uppercase;
+    }
+    .card-icon {
+      font-size: 32px;
+      color: var(--bg-primary);
+      margin-bottom: 12px;
+    }
+    .consult-card h3 {
+      font-size: 18px;
+      color: var(--text-red);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .price-tag {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-red);
+      margin-bottom: 4px;
+    }
+    .price-tag span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+    }
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin: 20px 0;
+      border-top: 1px dashed #ffd1b3;
+      padding-top: 15px;
+    }
+    .features-list li {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
     .features-list i { color: #166534; margin-top: 3px; }
-    
-    .session-info { font-size: 11.5px; color: #666; background: #fff8f0; padding: 6px; border-radius: 6px; margin-bottom: 15px; border: 1px solid #ffe0b2; }
-    .btn-order-now { background: linear-gradient(135deg, var(--bg-primary), #d84315); color: #ffffff; border: none; padding: 12px; border-radius: 8px; font-size: 13.5px; font-weight: 700; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(216, 67, 21, 0.25); transition: 0.2s; }
+    .session-info {
+      font-size: 11.5px;
+      color: #666;
+      background: #fff8f0;
+      padding: 6px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      border: 1px solid #ffe0b2;
+    }
+    .btn-order-now {
+      background: linear-gradient(135deg, var(--bg-primary), #d84315);
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(216, 67, 21, 0.25);
+      transition: 0.2s;
+    }
     .btn-order-now:hover { background: #bf360c; }
 
     /* CHECKOUT MODAL */
-    #checkoutModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 99999; justify-content: center; align-items: center; padding: 15px; overflow-y: auto; }
-    .modal-content { background: #ffffff; border: 2px solid var(--bg-primary); border-radius: 14px; max-width: 480px; width: 100%; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); position: relative; max-height: 90vh; overflow-y: auto; }
-    .modal-close { position: absolute; top: 12px; right: 15px; font-size: 22px; color: #888; cursor: pointer; font-weight: 700; }
+    #checkoutModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .modal-content {
+      background: #ffffff;
+      border: 2px solid var(--bg-primary);
+      border-radius: 14px;
+      max-width: 480px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+      font-weight: 700;
+    }
     .modal-close:hover { color: var(--text-red); }
-    .modal-content h3 { font-size: 18px; color: var(--text-red); margin-bottom: 4px; text-align: center; }
-    .modal-content p.subtitle { font-size: 12.5px; color: #666; text-align: center; margin-bottom: 12px; }
+    .modal-content h3 {
+      font-size: 18px;
+      color: var(--text-red);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .modal-content p.subtitle {
+      font-size: 12.5px;
+      color: #666;
+      text-align: center;
+      margin-bottom: 12px;
+    }
 
-    .payment-instruction-box { background: #fff8f0; border: 1px solid #ffd1b3; padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 11.5px; color: #444; text-align: left; }
-    .payment-instruction-box ol { margin-left: 16px; margin-top: 4px; }
+    .payment-instruction-box {
+      background: #fff8f0;
+      border: 1px solid #ffd1b3;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 11.5px;
+      color: #444;
+      text-align: left;
+    }
+    .payment-instruction-box ol {
+      margin-left: 16px;
+      margin-top: 4px;
+    }
     .payment-instruction-box li { margin-bottom: 3px; }
 
-    .qr-box { text-align: center; background: #ffffff; border: 1.5px dashed var(--border-orange); padding: 12px; border-radius: 10px; margin-bottom: 12px; }
-    .qr-box img { width: 110px; height: 110px; object-fit: contain; margin-bottom: 4px; border: 1px solid #ddd; border-radius: 6px; background: #fff; }
-    .modal-upi-tag { font-weight: 800; color: #d84315; font-size: 13.5px; margin: 4px 0 8px 0; }
-    .btn-direct-upi { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: #2563eb; color: #fff; font-size: 12px; font-weight: 700; padding: 8px 14px; border-radius: 6px; text-decoration: none; width: 100%; }
+    .qr-box {
+      text-align: center;
+      background: #ffffff;
+      border: 1.5px dashed var(--border-orange);
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .qr-box img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      margin-bottom: 4px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+    }
+    .modal-upi-tag {
+      font-weight: 800;
+      color: #d84315;
+      font-size: 13.5px;
+      margin: 4px 0 8px 0;
+    }
+    .btn-direct-upi {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      width: 100%;
+    }
     .btn-direct-upi:hover { background: #1d4ed8; }
 
-    .verify-section { background: #fffaf5; border: 1px solid #ffd1b3; padding: 12px; border-radius: 10px; margin-bottom: 15px; }
-    .verify-section label { display: block; font-size: 11.5px; font-weight: 700; color: var(--text-red); margin-bottom: 4px; }
-    .verify-row { display: flex; gap: 8px; }
-    .verify-row input { flex: 1; padding: 7px 10px; border: 1.5px solid var(--border-orange); border-radius: 6px; font-size: 12.5px; outline: none; text-align: center; letter-spacing: 2px; font-weight: 700; }
-    .btn-verify { background: var(--text-red); color: #fff; border: none; padding: 7px 12px; border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .verify-section {
+      background: #fffaf5;
+      border: 1px solid #ffd1b3;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .verify-section label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-red);
+      margin-bottom: 4px;
+    }
+    .verify-row {
+      display: flex;
+      gap: 8px;
+    }
+    .verify-row input {
+      flex: 1;
+      padding: 7px 10px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      font-size: 12.5px;
+      outline: none;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .btn-verify {
+      background: var(--text-red);
+      color: #fff;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
     .btn-verify:hover { background: #5a0000; }
     #verifyStatus { font-size: 11px; margin-top: 5px; font-weight: 600; }
 
-    #clientHiddenForm { display: none; border-top: 2px dashed #ffd1b3; padding-top: 15px; margin-top: 10px; }
-    .form-group { margin-bottom: 10px; text-align: left; }
-    .form-group label { display: block; font-size: 11.5px; font-weight: 600; color: var(--text-red); margin-bottom: 3px; }
-    .form-group input, .form-group textarea { width: 100%; padding: 8px 10px; border: 1.5px solid var(--border-orange); border-radius: 6px; font-size: 12px; background: #ffffff; outline: none; }
-    .btn-submit-whatsapp { background: #25d366; color: #fff; border: none; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; text-decoration: none; }
+    #clientHiddenForm {
+      display: none;
+      border-top: 2px dashed #ffd1b3;
+      padding-top: 15px;
+      margin-top: 10px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-red);
+      margin-bottom: 3px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1.5px solid var(--border-orange);
+      border-radius: 6px;
+      font-size: 12px;
+      background: #ffffff;
+      outline: none;
+    }
+    .btn-submit-whatsapp {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      text-decoration: none;
+    }
     .btn-submit-whatsapp:hover { background: #1ebe5d; }
 
-    footer { background: #4a0000; color: #ffcccc; text-align: center; padding: 20px 15px; font-size: 12.5px; border-top: 4px solid var(--bg-primary); margin-top: 40px; }
-    footer a { color: var(--accent-gold); text-decoration: none; margin: 0 6px; }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    footer {
+      background: #4a0000;
+      color: #ffcccc;
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 12.5px;
+      border-top: 4px solid var(--bg-primary);
+      margin-top: 40px;
+    }
+    footer a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      margin: 0 6px;
+    }
   </style>
 </head>
 <body>
@@ -123,6 +599,7 @@
         <span><i class="fa-solid fa-phone"></i> +91 9681258853 / +91 9163827953</span>
         <span><i class="fa-solid fa-envelope"></i> interestingabhi@gmail.com</span>
       </div>
+      <div id="google_translate_element"></div>
     </div>
   </div>
 
@@ -130,7 +607,7 @@
   <nav class="navbar">
     <div class="container nav-flex">
       <a href="index.html" class="logo-link">
-        <img src="logo.png" alt="Logo" class="logo-img" onerror="this.src='logo.png'">
+        <img src="logo.png" alt="AstroAbhijit Logo" class="logo-img" onerror="this.src='logo.png'">
         <span class="logo-text">Vedic Astro<span> & Vastu</span></span>
       </a>
       
@@ -265,9 +742,9 @@
       <div class="payment-instruction-box">
         <strong><i class="fa-solid fa-circle-info" style="color:#d84315;"></i> Payment Instructions:</strong>
         <ol>
-          <li>Scan QR or click <strong>"Pay via UPI App"</strong> to make the payment[cite: 1].</li>
-          <li>Enter the valid <strong>last 4 digits</strong> of your UPI transaction reference / UTR below[cite: 1].</li>
-          <li>Click <strong>"Verify"</strong>[cite: 1].</li>
+          <li>Scan QR or click <strong>"Pay via UPI App"</strong> to make the payment.</li>
+          <li>Enter the valid <strong>last 4 digits</strong> of your UPI transaction reference / UTR below.</li>
+          <li>Click <strong>"Verify"</strong>. (Note: Random numbers will fail verification).</li>
         </ol>
       </div>
 
@@ -316,7 +793,10 @@
     </div>
   </div>
 
-  <!-- FOOTER WITH TERMS & REFUND LINKS -->
+  <a href="https://wa.me/919681258853?text=Namaste%20Acharyaji,%20I%20want%20to%20inquire%20about%20consultation." class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <footer>
     <div style="margin-bottom: 12px;">
       <a href="terms-and-conditions.html">Terms & Conditions</a> |
@@ -324,9 +804,10 @@
       <a href="privacy-policy.html">Privacy Policy</a> |
       <a href="contact-us.html">Contact Us</a> |
       <a href="services.html">Reports & Services</a> |
-      <a href="reviews.html">User Reviews</a>
+      <a href="reviews.html">User Reviews</a> |
+      <a href="videos.html">Videos</a>
     </div>
-    <p>© 2026 astroabhijit.com — Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das[cite: 1].</p>
+    <p>© 2026 astroabhijit.com — Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das.</p>
   </footer>
 
   <script>
@@ -337,22 +818,26 @@
     document.addEventListener('DOMContentLoaded', () => {
       const slot = document.getElementById('navUserSlot');
       if (!slot) return;
+
       const rawUser = localStorage.getItem('astro_logged_client');
       if (!rawUser) {
         slot.innerHTML = `<a href="auth.html" class="btn-nav-login"><i class="fa-regular fa-user"></i> Login</a>`;
         return;
       }
+
       const user = JSON.parse(rawUser);
       const name = user.name ? user.name.split(' ')[0] : 'User';
+
       slot.innerHTML = `
-        <div style="position:relative; display:inline-block;">
-          <button type="button" onclick="toggleUserDrop(event)" style="background:rgba(255,255,255,0.15); border:1px solid #ffd700; color:#fff; padding:3px 6px; border-radius:16px; cursor:pointer; display:flex; align-items:center; gap:4px; font-size:11px; font-weight:700;">
+        <div class="user-chip-wrapper" style="position:relative; display:inline-block;">
+          <button type="button" class="user-chip-btn" onclick="toggleUserDrop(event)" style="background:rgba(255,255,255,0.15); border:1px solid #ffd700; color:#fff; padding:3px 6px; border-radius:16px; cursor:pointer; display:flex; align-items:center; gap:4px; font-size:11px; font-weight:700;">
             <span style="background:#ffd700; color:#7a0000; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800;">${name.charAt(0).toUpperCase()}</span>
             <span>${name}</span>
+            <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i>
           </button>
-          <div id="uCard" style="display:none; position:absolute; top:110%; right:0; background:#fff; min-width:140px; border:1.5px solid #ffaa55; border-radius:6px; box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:99999; overflow:hidden;">
-            <a href="dashboard.html" style="display:block; color:#8b0000; padding:7px 10px; font-size:11.5px; text-decoration:none; border-bottom:1px solid #ffe8d6;">My Orders</a>
-            <a href="javascript:void(0)" onclick="signOutUser()" style="display:block; color:#8b0000; padding:7px 10px; font-size:11.5px; text-decoration:none;">Sign Out</a>
+          <div class="user-dropdown-card" id="uCard" style="display:none; position:absolute; top:110%; right:0; background:#fff; min-width:140px; border:1.5px solid #ffaa55; border-radius:6px; box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:99999; overflow:hidden;">
+            <a href="dashboard.html" style="display:block; color:#8b0000; padding:7px 10px; font-size:11.5px; text-decoration:none; border-bottom:1px solid #ffe8d6;"><i class="fa-solid fa-box-archive"></i> My Orders</a>
+            <a href="javascript:void(0)" onclick="signOutUser()" style="display:block; color:#8b0000; padding:7px 10px; font-size:11.5px; text-decoration:none;"><i class="fa-solid fa-power-off"></i> Sign Out</a>
           </div>
         </div>
       `;
@@ -364,12 +849,18 @@
       if (el) el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
 
+    document.addEventListener('click', () => {
+      const el = document.getElementById('uCard');
+      if (el) el.style.display = 'none';
+    });
+
     function signOutUser() {
       localStorage.removeItem('astro_logged_client');
       alert('Signed out successfully.');
       window.location.reload();
     }
 
+    // OPEN CHECKOUT MODAL (Login Protected)
     function openCheckoutModal(serviceName, price) {
       const loggedUser = localStorage.getItem('astro_logged_client');
       if (!loggedUser) {
@@ -401,6 +892,7 @@
       document.getElementById('checkoutModal').style.display = 'none';
     }
 
+    // STRICT VALIDATION & LOCAL BACKEND / WHATSAPP SUBMISSION
     function verifyPaymentRef() {
       const val = document.getElementById('refDigitsInput').value.trim();
       const statusEl = document.getElementById('verifyStatus');
@@ -447,7 +939,7 @@
                 body: JSON.stringify(orderPayload)
               });
             } catch (err) {
-              console.warn('Backend server unreachable.');
+              console.warn('Backend server offline or unreachable.');
             }
 
             const text = `*New Consultation Booking (AstroVedic)*%0n` +
