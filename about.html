@@ -478,26 +478,46 @@
       margin: 0 6px;
     }
 
-    @media (max-width: 600px) {
-      .bio-hero-card { text-align: center; justify-content: center; }
-      .bio-img-wrap { margin: 0 auto; }
-      .bio-badges { justify-content: center; }
-    }@media screen and (max-width: 768px) {
-  header, .top-bar, nav, .navbar {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
-  nav a, .navbar a {
-    font-size: 12px !important;
-    padding: 5px 8px !important;
-    margin: 2px !important;
-    white-space: nowrap !important;
-  }
+    /* RESPONSIVE CSS FIX FOR MOBILE */
+    @media screen and (max-width: 900px) {
+      .top-flex {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 5px;
+      }
+      .top-bar span {
+        margin: 2px 5px !important;
+        font-size: 11px !important;
+      }
 
+      .nav-flex {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+      }
+      .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+      }
+      .nav-links a {
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+      }
+
+      .bio-hero-card {
+        text-align: center;
+        justify-content: center;
+      }
+      .bio-img-wrap {
+        margin: 0 auto;
+      }
+      .bio-badges {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
