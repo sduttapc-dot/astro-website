@@ -93,4 +93,40 @@ html, body {
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
+}/* মোবাইল স্ক্রিনের জন্য হেডার ও মেনু ফিক্স */
+@media screen and (max-width: 768px) {
+  /* ওপরের কন্টাক্ট ইনফো বারটি মোবাইল ফ্রেন্ডলি করা */
+  header, .top-bar, .contact-info {
+    font-size: 11px !important;
+    padding: 5px !important;
+    text-align: center !important;
+    overflow-x: hidden;
+  }
+  
+  /* ওপরের ফোন নম্বর ও ইমেল টেক্সট ছোট করা যাতে বাইরে না যায় */
+  header div, .top-bar span {
+    font-size: 10px !important;
+    display: inline-block;
+    word-break: break-all;
+  }
+
+  /* ন্যাভবার বা মেনুগুলোকে মোবাইলে সুন্দরভাবে নিচে নিচে সাজানো */
+  nav, .navbar, .menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    padding: 5px !important;
+  }
+
+  nav a, .navbar a {
+    font-size: 13px !important;
+    padding: 6px 8px !important;
+    margin: 2px !important;
+  }
+
+  /* ব্যানার সেকশনের লেখা এবং প্যাডিং ঠিক করা */
+  h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
 }
