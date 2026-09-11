@@ -62,4 +62,35 @@
 html, body {
   max-width: 100vw !important;
   overflow-x: hidden !important;
+}/* মোবাইল স্ক্রিনের জন্য লেখা ও বক্স ফিট করার কোড */
+@media screen and (max-width: 768px) {
+  /* বডি বা মূল কন্টেইনার যেন স্ক্রিন ভেদ করে বাইরে না যায় */
+  body, html {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* বড় হেডিং বা প্যারাগ্রাফগুলোর সাইজ মোবাইলের জন্য ছোট করা */
+  h1 {
+    font-size: 26px !important;
+    word-wrap: break-word;
+  }
+  
+  h2 {
+    font-size: 22px !important;
+    word-wrap: break-word;
+  }
+
+  p, span, a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* সব সেকশন বা বক্স মোবাইলে ১০০% উইথ এবং প্যাডিং ঠিক রাখা */
+  div, section, header, footer {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
