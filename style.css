@@ -1,139 +1,19 @@
-/* USER CHIP & NAVBAR OVERFLOW FIX */
-.user-chip-wrapper {
-  position: relative;
-  display: inline-block;
-}
+/* ==========================================================
+   Astro Abhijit - Clean & Safe Mobile View Fix
+   ========================================================== */
 
-.user-chip-btn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid #ffd700;
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11.5px;
-  font-weight: 700;
-}
-
-.user-avatar {
-  background: #ffd700;
-  color: #7a0000;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-}
-
-.user-dropdown-card {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: #ffffff;
-  min-width: 150px;
-  border: 1.5px solid #ffaa55;
-  border-radius: 6px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  z-index: 99999;
-  margin-top: 5px;
-  overflow: hidden;
-}
-
-.user-dropdown-card a {
-  display: block !important;
-  color: #8b0000 !important;
-  padding: 8px 12px !important;
-  font-size: 12px !important;
-  text-decoration: none;
-  border-bottom: 1px solid #eee;
-}
-
-.user-dropdown-card a:hover {
-  background: #fff3e0 !important;
-}
-
-/* স্ক্রিন যাতে ১ পিক্সেলও বাইরে না ছড়ায় */
+/* ১. স্ক্রিন যাতে কোনোভাবেই ডানে-বাঁয়ে ফেঁপে না যায় */
 html, body {
   max-width: 100vw !important;
   overflow-x: hidden !important;
-}/* মোবাইল স্ক্রিনের জন্য লেখা ও বক্স ফিট করার কোড */
-@media screen and (max-width: 768px) {
-  /* বডি বা মূল কন্টেইনার যেন স্ক্রিন ভেদ করে বাইরে না যায় */
-  body, html {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  /* বড় হেডিং বা প্যারাগ্রাফগুলোর সাইজ মোবাইলের জন্য ছোট করা */
-  h1 {
-    font-size: 26px !important;
-    word-wrap: break-word;
-  }
+/* ২. মোবাইল স্ক্রিনের সুনির্দিষ্ট রেসপন্সিভ ফিক্স (৭৬৮ পিক্সেল বা কম স্ক্রিন) */
+@media screen and (max-width: 768px) {
   
-  h2 {
-    font-size: 22px !important;
-    word-wrap: break-word;
-  }
-
-  p, span, a {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* সব সেকশন বা বক্স মোবাইলে ১০০% উইথ এবং প্যাডিং ঠিক রাখা */
-  div, section, header, footer {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}/* মোবাইল স্ক্রিনের জন্য হেডার ও মেনু ফিক্স */
-@media screen and (max-width: 768px) {
-  /* ওপরের কন্টাক্ট ইনফো বারটি মোবাইল ফ্রেন্ডলি করা */
-  header, .top-bar, .contact-info {
-    font-size: 11px !important;
-    padding: 5px !important;
-    text-align: center !important;
-    overflow-x: hidden;
-  }
-  
-  /* ওপরের ফোন নম্বর ও ইমেল টেক্সট ছোট করা যাতে বাইরে না যায় */
-  header div, .top-bar span {
-    font-size: 10px !important;
-    display: inline-block;
-    word-break: break-all;
-  }
-
-  /* ন্যাভবার বা মেনুগুলোকে মোবাইলে সুন্দরভাবে নিচে নিচে সাজানো */
-  nav, .navbar, .menu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    padding: 5px !important;
-  }
-
-  nav a, .navbar a {
-    font-size: 13px !important;
-    padding: 6px 8px !important;
-    margin: 2px !important;
-  }
-
-  /* ব্যানার সেকশনের লেখা এবং প্যাডিং ঠিক করা */
-  h1 {
-    font-size: 24px !important;
-    line-height: 1.2 !important;
-  }
-}/* ==========================================================
-   Astro Abhijit - Mobile Header & Menu Fix (Safe & Clean)
-   ========================================================== */
-@media screen and (max-width: 768px) {
-  /* ১. ওপরের ফোন ও ইমেল বার ফিক্স */
+  /* ওপরের কন্টাক্ট ইনফো (ফোন ও ইমেল) সুন্দরভাবে সেন্টারে সাজানো */
   header div:first-child, 
   .top-bar, 
   .contact-info {
@@ -142,44 +22,54 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 6px !important;
-    font-size: 11px !important;
     width: 100% !important;
+    padding: 6px 4px !important;
     box-sizing: border-box !important;
   }
 
-  /* ফোন নম্বর ও ইমেল লিংকগুলো এক লাইনে বা ভেঙে যাওয়া রোধ করা */
   header div:first-child a, 
-  .top-bar a {
+  .top-bar a, 
+  .top-bar span {
+    font-size: 11px !important;
     display: inline-block !important;
     margin: 2px 0 !important;
-    font-size: 11px !important;
   }
 
-  /* ২. মেনু বা ন্যাভবার ফিক্স (যাতে কেটে না যায়) */
+  /* মেনু বা ন্যাভবার আইটেমগুলো মোবাইলে ভেঙে যাওয়া রোধ করা এবং পাশাপাশি র‍্যাপ করা */
   nav, .navbar, .menu {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    padding: 5px 0 !important;
-    background-color: inherit !important;
+    padding: 6px 0 !important;
+    margin: 0 !important;
   }
 
-  /* মেনুর একেকটি লিংকের সাইজ ও স্পেসিং */
+  /* মেনু লিংকের সাইজ ও প্যাডিং যাতে মোবাইলের স্ক্রিনে পারফেক্ট বসে */
   nav a, .navbar a, .menu a {
     font-size: 12px !important;
     padding: 5px 8px !important;
-    margin: 3px !important;
+    margin: 2px !important;
     white-space: nowrap !important;
   }
 
-  /* ৩. মূল ব্যানার টাইটেল সাইজ কমানো */
+  /* প্রধান হেডিং বা ব্যানার টেক্সটের সাইজ অ্যাডজাস্টমেন্ট */
   h1 {
-    font-size: 22px !important;
+    font-size: 24px !important;
     line-height: 1.3 !important;
-    word-wrap: break-word !important;
     padding: 0 10px !important;
+    word-break: break-word !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+    word-break: break-word !important;
+  }
+
+  /* সমস্ত মেইন কন্টেইনার ও সেকশন ১০০% উইথ বজায় রাখা */
+  div, section, header, footer {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
