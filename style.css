@@ -73,3 +73,38 @@ html, body {
     box-sizing: border-box !important;
   }
 }
+/* ==========================================================
+   ASTRO ABHIJIT - EXACT MOBILE HEADER & MENU FIX
+   ========================================================== */
+@media screen and (max-width: 768px) {
+  /* ওপরের কন্টাক্ট ইনফো এবং হেডার ফিক্স */
+  header, .header, .top-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 5px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ন্যাভবার বা মেনুগুলোকে মোবাইলে নিচে নিচে বা সুন্দরভাবে র‍্যাপ করা */
+  nav, .navbar, .menu, ul.nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 5px 0 !important;
+  }
+
+  /* মেনুর একেকটি লিংকের সাইজ ও স্পেসিং ছোট করা যাতে লাইনে ধরে */
+  nav a, .navbar a, .menu a, ul.nav-links li a {
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+    margin: 2px !important;
+    white-space: nowrap !important;
+  }
+}
