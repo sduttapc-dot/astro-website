@@ -71,6 +71,16 @@
 
     footer { background: #4a0000; color: #ffcccc; text-align: center; padding: 20px 15px; font-size: 12.5px; border-top: 4px solid var(--bg-primary); margin-top: 50px; }
     footer a { color: var(--accent-gold); text-decoration: none; margin: 0 6px; }
+
+    /* MOBILE RESPONSIVE FIX */
+    @media screen and (max-width: 900px) {
+      .top-flex { flex-direction: column !important; text-align: center !important; gap: 5px; }
+      .top-bar span { margin: 2px 5px !important; font-size: 11px !important; }
+      .nav-flex { flex-direction: column !important; justify-content: center !important; align-items: center !important; gap: 10px !important; }
+      .nav-links { flex-wrap: wrap !important; justify-content: center !important; gap: 6px !important; width: 100% !important; }
+      .nav-links a { font-size: 12px !important; padding: 4px 6px !important; }
+      .auth-wrapper { margin: 20px 10px !important; padding: 20px !important; }
+    }
   </style>
 </head>
 <body>
@@ -88,16 +98,16 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container nav-flex">
-      <a href="/" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="logo.png" alt="Logo" class="logo-img" onerror="this.src='logo.png'">
         <span class="logo-text">Vedic Astro<span> & Vastu</span></span>
       </a>
       
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Services</a></li>
-        <li><a href="/">Consult</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="consult.html">Consult</a></li>
         
         <li class="dropdown">
           <a href="panchang.html">Panchang <i class="fa-solid fa-angle-down"></i></a>
@@ -199,7 +209,7 @@
       <a href="reviews.html">User Reviews</a> |
       <a href="videos.html">Videos</a>
     </div>
-    <p>© 2026 astroabhijit.com — Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das[cite: 1].</p>
+    <p>© 2026 astroabhijit.com — Vedic Astro & Vastu Services. Curated by Acharya Abhijit Das.</p>
   </footer>
 
   <script>
@@ -213,7 +223,6 @@
       }
     }
 
-    // Register Form Submit with Password Validation
     document.getElementById('registerForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const name = document.getElementById('regName').value;
@@ -221,7 +230,6 @@
       const phone = document.getElementById('regPhone').value;
       const password = document.getElementById('regPassword').value;
 
-      // Password Validation Logic (8 to 16 chars, 1 uppercase, 1 lowercase, 1 number)
       const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/;
       if (!pwdRegex.test(password)) {
         alert('Password must be 8 to 16 characters long and contain at least one uppercase letter, one lowercase letter, and one number.');
@@ -247,7 +255,6 @@
       }
     });
 
-    // Login Form Submit
     document.getElementById('loginForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const loginId = document.getElementById('loginId').value;
